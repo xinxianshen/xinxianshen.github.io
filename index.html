@@ -367,81 +367,17 @@ WIDGET = {FID: 'hn148ubO3E'}
 
       
         
-          
-            <p>VTP(vlan中继协议)说简单点，就是用来在二层交换机上进行vlan通信，例如3台交换机，将中间的那台交换机作为vlan server，其他两台作为vlan client，我们只需要配置server就可以达到在不同交换机上的vlan通信。</p>
-<h2 id="准备工作："><a href="#准备工作：" class="headerlink" title="准备工作："></a>准备工作：</h2><p>准备3台交换机，命名为Switch1、Switch2、Switch3；<br>4台电脑，分别为PC1、PC2、PC3、PC4。将Switch1作为vlan server，Switch2和Switch3作为client。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">设备名</th>
-<th style="text-align:center">IP地址</th>
-<th style="text-align:center">接口</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">PC1</td>
-<td style="text-align:center">192.168.1.10</td>
-<td style="text-align:center">Switch2:f0/1</td>
-</tr>
-<tr>
-<td style="text-align:center">PC2</td>
-<td style="text-align:center">192.168.1.20</td>
-<td style="text-align:center">Switch2:f0/2</td>
-</tr>
-<tr>
-<td style="text-align:center">PC3</td>
-<td style="text-align:center">192.168.1.30</td>
-<td style="text-align:center">Switch3:f0/1</td>
-</tr>
-<tr>
-<td style="text-align:center">PC4</td>
-<td style="text-align:center">192.168.1.40</td>
-<td style="text-align:center">Switch3:f0/2</td>
-</tr>
-</tbody>
-</table>
-<p>Switch2：f0/3——&gt;Switch1:f0/1<br>Switch3：f0/3——&gt;Switch1:f0/2<br>具体示意看图一。</p>
-<h2 id="1、配置vlan-server（Switch1）："><a href="#1、配置vlan-server（Switch1）：" class="headerlink" title="1、配置vlan server（Switch1）："></a>1、配置vlan server（Switch1）：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Switch&gt;en</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Switch#vlan database </span><br><span class="line">% Warning: It is recommended to configure VLAN from config mode,</span><br><span class="line">  as VLAN database mode is being deprecated. Please consult user</span><br><span class="line">  documentation for configuring VTP/VLAN in config mode.</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Switch(vlan)#vtp domain abc</span><br><span class="line">Changing VTP domain name from NULL to abc</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Switch(vlan)#vtp server </span><br><span class="line">Device mode already VTP SERVER.</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Switch(vlan)#exit </span><br><span class="line">APPLY completed.</span><br><span class="line">Exiting....</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Switch#conf t</span><br><span class="line">Enter configuration commands, one per line.  End with CNTL/Z.</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Switch(config)#vlan 10</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Switch(config-vlan)#vlan  20</span><br></pre></td></tr></table></figure>
-<h2 id="2、配置vlan-client（Switch2）："><a href="#2、配置vlan-client（Switch2）：" class="headerlink" title="2、配置vlan client（Switch2）："></a>2、配置vlan client（Switch2）：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Switch&gt;en</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Switch#vlan database </span><br><span class="line">% Warning: It is recommended to configure VLAN from config mode,</span><br><span class="line">  as VLAN database mode is being deprecated. Please consult user</span><br><span class="line">  documentation for configuring VTP/VLAN in config mode.</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Switch(vlan)#vtp domain abc</span><br><span class="line">Changing VTP domain name from NULL to abc</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Switch(vlan)#vtp client </span><br><span class="line">Setting device to VTP CLIENT mode.</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Switch(vlan)#exit</span><br><span class="line">APPLY completed.</span><br><span class="line">Exiting....</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Switch#conf t</span><br><span class="line">Enter configuration commands, one per line.  End with CNTL/Z.</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Switch(config)#int f0/1</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Switch(config-if)#switchport mode access</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Switch(config-if)#switchport access vlan 10</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Switch(config-if)#int f0/2</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Switch(config-if)#switchport mode access</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Switch(config-if)#switchport access vlan 20</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Switch(config-if)#int f0/3</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Switch(config-if)#switchport mode trunk</span><br><span class="line">Switch(config-if)#</span><br><span class="line">%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to down</span><br><span class="line">%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to up</span><br></pre></td></tr></table></figure>
-<h2 id="3、配置vlan-client（Switch3）："><a href="#3、配置vlan-client（Switch3）：" class="headerlink" title="3、配置vlan client（Switch3）："></a>3、配置vlan client（Switch3）：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Switch&gt;en</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Switch#vlan database </span><br><span class="line">% Warning: It is recommended to configure VLAN from config mode,</span><br><span class="line">  as VLAN database mode is being deprecated. Please consult user</span><br><span class="line">  documentation for configuring VTP/VLAN in config mode.</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Switch(vlan)#vtp domain abc</span><br><span class="line">Changing VTP domain name from NULL to abc</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Switch(vlan)#vtp client </span><br><span class="line">Setting device to VTP CLIENT mode.</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Switch(vlan)#exit</span><br><span class="line">APPLY completed.</span><br><span class="line">Exiting....</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Switch#conf t</span><br><span class="line">Enter configuration commands, one per line.  End with CNTL/Z.</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Switch(config)#int f0/1</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Switch(config-if)#switchport mode access</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Switch(config-if)#switchport access vlan 10</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Switch(config-if)#int f0/2</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Switch(config-if)#switchport mode access</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Switch(config-if)#switchport access vlan 20</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Switch(config-if)#int f0/3</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Switch(config-if)#switchport mode trunk</span><br><span class="line">Switch(config-if)#</span><br><span class="line">%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to down</span><br><span class="line">%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to up</span><br></pre></td></tr></table></figure>
-          
+          <p>关于思科VTP(vlan中继协议)配置实验<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/21/VTP（vlan中继协议）配置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -567,52 +503,22 @@ WIDGET = {FID: 'hn148ubO3E'}
       
         
           
-            <h1 id="Win-组合键"><a href="#Win-组合键" class="headerlink" title="Win 组合键"></a>Win 组合键</h1><p>Win + E：打开“我的电脑” </p>
-<p>Win + R：打开“运行”对话框 </p>
-<p>Win + D：秒回桌面</p>
-<p>Win + Home：最小化除当前窗口外的所有窗口</p>
-<p>Win + Q：呼唤小娜</p>
-<p>Win + L：瞬间锁屏</p>
-<p>Win + A：打开通知栏</p>
-<p>Win + Tab：虚拟桌面 （可用来快速切换工作窗口）</p>
-<p>Win + X：打开所有系统设置”</p>
-<p>Win + I：打开系统设置 </p>
-<p>Win + PauseBreak：打开系统属性</p>
-<p>Win + -/+：屏幕放大或缩小 （让电脑屏幕拥有类似浏览器的放大缩小功能）</p>
-<p>Win + ←/→：让对话窗口占左/右半屏 （在对比时非常有用）</p>
-<p>Win + ↑/↓：让对话窗口放大/正常/最小化 （同上，先按左右再按上下可以让窗口只占角落1/4的区域）</p>
-<p>PrintScreen：复制屏幕截图到粘贴板</p>
-<p>Win + PrintScreen：复制屏幕截图到粘贴板，同时还会保存到 C:\Users\用户名\Pictures\Screenshots</p>
-<p>Win + Shift + S：框选屏幕任意区域并复制到粘贴板</p>
-<h1 id="Ctrl-组合键"><a href="#Ctrl-组合键" class="headerlink" title="Ctrl 组合键"></a>Ctrl 组合键</h1><p>Ctrl + Z：撤回</p>
-<p>Ctrl + Y：复原撤回</p>
-<p>Ctrl + W：关闭</p>
-<p>Ctrl + S：保存</p>
-<p>Ctrl + N：新建窗口</p>
-<p>Ctrl + Shift + N：新建一个文件夹</p>
-<p>Ctrl + Shift + T：还原关闭的网页</p>
-<p>Ctrl + Esc：显示开始菜单</p>
-<p>Ctrl + Home：光标移至列首</p>
-<p>Ctrl + Alt + Del：任务管理器</p>
-<p>Ctrl + 选择文件：多选文件</p>
-<p>Ctrl + 拖动文件： 复制文件</p>
-<p>Ctrl + Shift + 任意箭头：突出显示一块文本</p>
-<p>Ctrl + Shift + Esc：打开 Windows 任务管理器</p>
-<h1 id="Alt-组合键"><a href="#Alt-组合键" class="headerlink" title="Alt 组合键"></a>Alt 组合键</h1><p>Alt + F4：关闭当前窗口</p>
-<p>Alt + Tab： 两个程序交换</p>
-<p>Alt + F：打开程序菜单</p>
-<p>Alt + 空格： 打开关闭对话窗口</p>
-<p>Alt + 回车： 查看文件属性</p>
-<p>Alt + 双击文件：查看文件属性</p>
-<p>Alt + 拖动文件：创建快捷方式</p>
-<h1 id="Shift-组合键"><a href="#Shift-组合键" class="headerlink" title="Shift 组合键"></a>Shift 组合键</h1><p>Shift + 空格：半\全角切换</p>
-<p>Shift + 回车：换行</p>
-<p>Shift + Del：永久删除所选</p>
-<p>Shift + F10：打开右键菜单</p>
-<p>Shift + 选择文件：选择多个相邻的项目</p>
-<p>Shift + 拖动文件： 移动文件</p>
-
-          
+          Win 组合键Win + E：打开“我的电脑” 
+Win + R：打开“运行”对话框 
+Win + D：秒回桌面
+Win + Home：最小化除当前窗口外的所有窗口
+Win + Q：呼唤小娜
+Win + L：瞬间锁屏
+Win + A：打开通知栏
+Win + Tab：虚拟桌面 （可用来快速切换工作窗口
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/06/Windows10系统-常用快捷键/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -741,11 +647,17 @@ WIDGET = {FID: 'hn148ubO3E'}
       
         
           
-            <p>无法获得锁 /var/lib/dpkg/lock -XX </p>
-<h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><p>把lock的文件强行删掉，一般在错误提示那有路径，按照那个路径删，lock后面一般还有-XX：<br><figure class="highlight plain"><figcaption><span>rm</span><a href="/var/lib/dpkg/lock-名字```">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">或</span><br><span class="line">```sudo rm /var/lib/apt/lists/lock</span><br></pre></td></tr></table></figure></p>
-<h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><p><kbd>ps aux</kbd> 列出当前进程列表，找到 apt-get 那个被lock住的进程，记下PID<br><kbd>sudo kill</kbd>+<kbd>PID号</kbd><br>Linux只允许开一个apt-get</p>
-
-          
+          无法获得锁 /var/lib/dpkg/lock -XX 
+方法一：把lock的文件强行删掉，一般在错误提示那有路径，按照那个路径删，lock后面一般还有-XX：rmlink12或```sudo rm /var/lib/apt/lists/lock
+方法二：ps aux 列出当前进程列表，找到 ap
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/06/ubuntu使用apt更新，无法获得锁-var-lib-dpkg-lock-XX/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -874,14 +786,18 @@ WIDGET = {FID: 'hn148ubO3E'}
       
         
           
-            <h2 id="查找占用端口软件"><a href="#查找占用端口软件" class="headerlink" title="查找占用端口软件"></a>查找占用端口软件</h2><p>两种方法</p>
-<h4 id="第一种"><a href="#第一种" class="headerlink" title="第一种"></a>第一种</h4><p>查看当前进程连接情况：<kbd>netstat -ano</kbd><br>找到占用443或者80端口的软件，我这已经被我杀掉了，所以没有，就只是举个例子。介绍下方法。<br><img src="https://img-blog.csdnimg.cn/20190111092454349.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDQ4Mjcy,size_16,color_FFFFFF,t_70" alt="cmd"></p>
-<p>通过找到的进程号，然后就可以到<strong>任务管理器</strong>里面结束掉。<img src="https://img-blog.csdnimg.cn/20190111095011158.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDQ4Mjcy,size_16,color_FFFFFF,t_70" alt="任务管理器"></p>
-<h4 id="第二种"><a href="#第二种" class="headerlink" title="第二种"></a>第二种</h4><p>1.查看指定端口(我这举例图片用的445端口)连接情况：<kbd>netstat -ano | findstr  “80” </kbd><br><img src="https://img-blog.csdnimg.cn/20190111103542776.png" alt="查看端口"><br>2.查看指定进程(此处查的PID4)<kbd>tasklist | findstr  “4”</kbd><br><img src="https://img-blog.csdnimg.cn/20190111104412991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDQ4Mjcy,size_16,color_FFFFFF,t_70" alt="查看进程"></p>
-<hr>
-<p>80端口被占用在win10下一般进程是Http.sys。它是http API的驱动组件，Http栈服务器。如果该端口被Http.sys占用，说明一些正在使用http.sys的应用程序在运行。<br>接下我们就该结束掉这些应用。在管理员cmd中运行：<br>1.停止http服务命令：<kbd>net stop http</kbd><br>2.输入命令回车：<kbd>Sc config http start= disabled</kbd><br>此时就ok了，PID4会去占用445端口。</p>
-
-          
+          查找占用端口软件两种方法
+第一种查看当前进程连接情况：netstat -ano找到占用443或者80端口的软件，我这已经被我杀掉了，所以没有，就只是举个例子。介绍下方法。
+通过找到的进程号，然后就可以到任务管理器里面结束掉。
+第二种1.查看指定端口(我这举例图片用的445端口)连接情况：netsta
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/06/解决443-80端口被占用情况/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1010,11 +926,15 @@ WIDGET = {FID: 'hn148ubO3E'}
       
         
           
-            <h2 id="1-spss24-win64位"><a href="#1-spss24-win64位" class="headerlink" title="1.spss24 win64位"></a>1.spss24 win64位</h2><p>链接: <a href="https://pan.baidu.com/s/1qY6vMAGJkT1wdfNMm8mqag" target="_blank" rel="noopener">https://pan.baidu.com/s/1qY6vMAGJkT1wdfNMm8mqag</a>  提取码: bh8u<br>许可证：9MQT8R78RQBWEXN3WRG7CEC2WCO6TOREVH6CBAI8TI58MI2QM22IKP6V9L8DHS6T2MOFL5MPNSEXTH4SYI24JOU3WO<br>至于安装破解教程网上很多，就不在这写了。</p>
-<h2 id="2-Matlab-2016a-win64位"><a href="#2-Matlab-2016a-win64位" class="headerlink" title="2.Matlab 2016a win64位"></a>2.Matlab 2016a win64位</h2><p>链接: <a href="https://pan.baidu.com/s/1-jjeoUtyumyeKV8zP8CTyQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1-jjeoUtyumyeKV8zP8CTyQ</a> 提取码: cag7<br>详细安装破解教程见文件里。<br><strong>ps：</strong> 1.<em>R2016a_win64.part1.rar</em>、<em>R2016a_win64.part2.rar</em> 两部分安装文件解压 <em>R2016a_win64.part1.rar</em> 即可。得到“R2016a_win64”文件夹，安装文件为iso格式，解压出来后运行“setup.exe”开始安装。<br>2.安装程序启动后选择”使用文件安装密钥 不需要Internet连接“<br>3.选择”我已有我的许可证的文件安装密钥“，输入秘钥：”09806-07443-53955-64350-21751-41297“</p>
-<p>Matlab破解教程：<br>1、将下载的Matlab 2016a Win64 Crack.rar破解文件解压，文件夹中的”license_standalone.lic“就是许可文件<br>2、打开Matlab的安装目录，点击”activate_matlab.exe“进行激活，选择”在不使用 Internet 的情况下手动激活“<br>3、选择“输入许可证文件的完成路径（包括文件名）”，点击”浏览“，选择刚解压的 Matlab 2016a Win64 Crack 文件夹中的”license_standalone.lic“许可文件。<br>4、之后提示”激活完成“，此时不要打开软件，打开解压的 Matlab 2016a Win64 Crack 文件夹中的MATLAB Production Server\R2016a\bin\win64，复制其中的3个dll文件<br>5、打开软件安装目录”\MATLAB\R2016a\bin\win64“文件，将复制的dll文件粘贴在这个文件夹中，系统会提示“复制文件”选项，所有文件都选择“复制和替换”即可。</p>
-
-          
+          1.spss24 win64位链接: https://pan.baidu.com/s/1qY6vMAGJkT1wdfNMm8mqag  提取码: bh8u许可证：9MQT8R78RQBWEXN3WRG7CEC2WCO6TOREVH6CBAI8TI58MI2QM22IKP6V9L8DHS6T2MOFL
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/06/软件集合（不定时更新）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1143,11 +1063,16 @@ WIDGET = {FID: 'hn148ubO3E'}
       
         
           
-            <h2 id="谷歌浏览器失败代码为：4-0x80070005-–-system-level"><a href="#谷歌浏览器失败代码为：4-0x80070005-–-system-level" class="headerlink" title="谷歌浏览器失败代码为：4: 0x80070005 – system level"></a>谷歌浏览器失败代码为：4: 0x80070005 – system level</h2><p>应该是我用优化软件时，将谷歌更新服务选择禁止了，导致浏览器的更新服务启动不了。</p>
-<h2 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h2><p>1.<kbd>win</kbd>+<kbd>r</kbd>，输入<code>services.msc</code>，进入服务管理窗口。<br>2.找到 “Google 更新服务 (gupdatem)”、“Google 更新服务 (gupdate)”服务，将<strong>启动类型</strong>改为手动即可。</p>
-<p>如果想让浏览器自动更新，就开为<strong>自动</strong>。</p>
-
-          
+          谷歌浏览器失败代码为：4: 0x80070005 – system level应该是我用优化软件时，将谷歌更新服务选择禁止了，导致浏览器的更新服务启动不了。
+解决办法：1.win+r，输入services.msc，进入服务管理窗口。2.找到 “Google 更新服务 (gupdatem)”、“Goo
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/06/Chrome浏览器更新失败/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1276,24 +1201,16 @@ WIDGET = {FID: 'hn148ubO3E'}
       
         
           
-            <p>中科大源：<a href="http://mirrors.ustc.edu.cn/help/anaconda.html" target="_blank" rel="noopener">http://mirrors.ustc.edu.cn/help/anaconda.html</a></p>
-<h2 id="添加源地址"><a href="#添加源地址" class="headerlink" title="添加源地址"></a>添加源地址</h2><h3 id="添加USTC仓库镜像"><a href="#添加USTC仓库镜像" class="headerlink" title="添加USTC仓库镜像"></a>添加USTC仓库镜像</h3><p>在conda中输入3条命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure></p>
-<h3 id="Conda-附加库"><a href="#Conda-附加库" class="headerlink" title="Conda 附加库"></a>Conda 附加库</h3><ul>
-<li><p>Conda Forge</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>msys2</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/msys2/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>bioconda</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>menpo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/menpo/</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="常见使用命令"><a href="#常见使用命令" class="headerlink" title="常见使用命令"></a>常见使用命令</h2>
-          
+          中科大源：http://mirrors.ustc.edu.cn/help/anaconda.html
+添加源地址添加USTC仓库镜像在conda中输入3条命令123conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkg
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/06/Anaconda安装及命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1422,19 +1339,20 @@ WIDGET = {FID: 'hn148ubO3E'}
       
         
           
-            <p><a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>官网。使用Markdown语法编辑文章。</p>
-<h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><h3 id="1-新建文章"><a href="#1-新建文章" class="headerlink" title="1 新建文章"></a>1 新建文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"new name"</span></span><br></pre></td></tr></table></figure>
-<p>官方文档: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="2-启动服务"><a href="#2-启动服务" class="headerlink" title="2 启动服务"></a>2 启动服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br><span class="line">简写： $ hexo s</span><br></pre></td></tr></table></figure>
-<p>官方文档: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><h4 id="2-1-生成静态文件"><a href="#2-1-生成静态文件" class="headerlink" title="2.1 生成静态文件"></a>2.1 生成静态文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br><span class="line">简写： $ hexo g</span><br></pre></td></tr></table></figure>
-<p>官方文档: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h4 id="2-2-部署到远程站点-既发布到服务器"><a href="#2-2-部署到远程站点-既发布到服务器" class="headerlink" title="2.2 部署到远程站点(既发布到服务器)"></a>2.2 部署到远程站点(既发布到服务器)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br><span class="line">简写： $ hexo d</span><br></pre></td></tr></table></figure>
-<p>官方文档: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<h4 id="2-3-以上两个可以合并"><a href="#2-3-以上两个可以合并" class="headerlink" title="2.3 以上两个可以合并"></a>2.3 以上两个可以合并</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>
-<h3 id="3-超链接标记"><a href="#3-超链接标记" class="headerlink" title="3 超链接标记"></a>3 超链接标记</h3><p>如果需要使用超链接，比如这样<a href="www.baidu.com">百度</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在文章里：[名字](url)</span><br></pre></td></tr></table></figure></p>
-
-          
+          Hexo官网。使用Markdown语法编辑文章。
+基本命令1 新建文章1$ hexo new "new name"
+官方文档: Writing
+2 启动服务12$ hexo server简写： $ hexo s
+官方文档: Server
+发布2.1 生成静态文件12$ hexo generate简写
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/16/hexo使用命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1655,6 +1573,8 @@ WIDGET = {FID: 'hn148ubO3E'}
   
 
 
+  
+
 
 
 
@@ -1693,6 +1613,11 @@ WIDGET = {FID: 'hn148ubO3E'}
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
