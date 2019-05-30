@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="无法获得锁 /var/lib/dpkg/lock -XX  方法一：把lock的文件强行删掉，一般在错误提示那有路径，按照那个路径删，lock后面一般还有-XX：rmlink12或```sudo rm /var/lib/apt/lists/lock 方法二：ps aux 列出当前进程列表，找到 apt-get 那个被lock住的进程，记下PIDsudo kill+PID号Linux只允许开一个ap">
+<meta name="description" content="无法获得锁 /var/lib/dpkg/lock -XX  方法一：把lock的文件强行删掉，一般在错误提示那有路径，按照那个路径删，lock后面一般还有-XX：1sudo rm /var/lib/dpkg/lock-名字 或1sudo rm /var/lib/apt/lists/lock 方法二：ps aux 列出当前进程列表，找到 apt-get 那个被lock住的进程，记下PIDsudo k">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu使用apt更新，无法获得锁&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;lock- XX">
 <meta property="og:url" content="http://www.xinxianshen.top/2019/05/06/ubuntu使用apt更新，无法获得锁-var-lib-dpkg-lock-XX/index.html">
 <meta property="og:site_name" content="鑫先绅">
-<meta property="og:description" content="无法获得锁 /var/lib/dpkg/lock -XX  方法一：把lock的文件强行删掉，一般在错误提示那有路径，按照那个路径删，lock后面一般还有-XX：rmlink12或```sudo rm /var/lib/apt/lists/lock 方法二：ps aux 列出当前进程列表，找到 apt-get 那个被lock住的进程，记下PIDsudo kill+PID号Linux只允许开一个ap">
+<meta property="og:description" content="无法获得锁 /var/lib/dpkg/lock -XX  方法一：把lock的文件强行删掉，一般在错误提示那有路径，按照那个路径删，lock后面一般还有-XX：1sudo rm /var/lib/dpkg/lock-名字 或1sudo rm /var/lib/apt/lists/lock 方法二：ps aux 列出当前进程列表，找到 apt-get 那个被lock住的进程，记下PIDsudo k">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-06T15:55:34.960Z">
+<meta property="og:updated_time" content="2019-05-30T14:23:18.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu使用apt更新，无法获得锁&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;lock- XX">
-<meta name="twitter:description" content="无法获得锁 /var/lib/dpkg/lock -XX  方法一：把lock的文件强行删掉，一般在错误提示那有路径，按照那个路径删，lock后面一般还有-XX：rmlink12或```sudo rm /var/lib/apt/lists/lock 方法二：ps aux 列出当前进程列表，找到 apt-get 那个被lock住的进程，记下PIDsudo kill+PID号Linux只允许开一个ap">
+<meta name="twitter:description" content="无法获得锁 /var/lib/dpkg/lock -XX  方法一：把lock的文件强行删掉，一般在错误提示那有路径，按照那个路径删，lock后面一般还有-XX：1sudo rm /var/lib/dpkg/lock-名字 或1sudo rm /var/lib/apt/lists/lock 方法二：ps aux 列出当前进程列表，找到 apt-get 那个被lock住的进程，记下PIDsudo k">
 
 
 
@@ -383,7 +383,8 @@ WIDGET = {FID: 'hn148ubO3E'}
 
       
         <p>无法获得锁 /var/lib/dpkg/lock -XX </p>
-<h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><p>把lock的文件强行删掉，一般在错误提示那有路径，按照那个路径删，lock后面一般还有-XX：<br><figure class="highlight plain"><figcaption><span>rm</span><a href="/var/lib/dpkg/lock-名字```">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">或</span><br><span class="line">```sudo rm /var/lib/apt/lists/lock</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><p>把lock的文件强行删掉，一般在错误提示那有路径，按照那个路径删，lock后面一般还有-XX：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/lib/dpkg/lock-名字</span><br></pre></td></tr></table></figure></p>
+<p>或<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/lib/apt/lists/lock</span><br></pre></td></tr></table></figure></p>
 <h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><p><kbd>ps aux</kbd> 列出当前进程列表，找到 apt-get 那个被lock住的进程，记下PID<br><kbd>sudo kill</kbd>+<kbd>PID号</kbd><br>Linux只允许开一个apt-get</p>
 
       
@@ -507,7 +508,7 @@ WIDGET = {FID: 'hn148ubO3E'}
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
