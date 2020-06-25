@@ -99,7 +99,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s1.ax1x.com/2020/06/15/NCuUwq.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/06/20/NQ37X8.png">
-<meta property="og:updated_time" content="2020-06-25T08:49:15.628Z">
+<meta property="og:updated_time" content="2020-06-25T09:37:36.664Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据挖掘期末">
 <meta name="twitter:description" content="概论什么是数据挖掘？数据挖掘的实际数据具有大量、不完全、有噪声、模糊的特点 数据挖掘技术统计学是关于认识客观现象总体数量特征和数量关系的科学。它是通过搜集、整理、分析统计资料，认识客观现象数量规律性的方法论科学。 eg：1、使用历史记录预测某公司未来的股票价格。是。我们可以通过建立模型预测未来的持续价值的股票价格。2、监视病人心率的异常变化。是。我们将构建一种类型为正常的心率和当异常心率的行为发生">
@@ -532,8 +532,39 @@ C      45
 </tbody>
 </table>
 </div>
-<p><img src="https://s1.ax1x.com/2020/06/20/NQ37X8.png" alt="A、B、C三个样本点的二维坐标投影图"><br>各种距离计算公式：<br>| 类别 | 计算公式(二维) | A、B样本 | A、C样本 |<br>| :—: | :—: | :—: | :—: |<br>|a     |b     |v     |   c  |</p>
-<p>| 欧式距离 | $\sqrt{((x_1-x_2)^2+(y_1-y_2)^2))}$ | $\sqrt{5^2+1^2=26}$ | $\sqrt{2^2+3^2=13}$ |<br>| 曼哈顿距离 | $||x_1-x_2||+||y_1-y_2||$ | $||4-9||+||4-5||=6$ | $||4-6||+||4-1||=5$ |<br>| 切比雪夫距离 | $Max(|x_1-x_2|,|y_1-y_2|)$ | $Max(5,1)=5$    | $Max(2,3)=3$ |</p>
+<p><img src="https://s1.ax1x.com/2020/06/20/NQ37X8.png" alt="A、B、C三个样本点的二维坐标投影图"><br>各种距离计算公式：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类别</th>
+<th style="text-align:center">计算公式(二维)</th>
+<th style="text-align:center">A、B样本</th>
+<th style="text-align:center">A、C样本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">欧式距离</td>
+<td style="text-align:center">$\sqrt{((x_1-x_2)^2+(y_1-y_2)^2))}$</td>
+<td style="text-align:center">$\sqrt{5^2+1^2=26}$</td>
+<td style="text-align:center">$\sqrt{2^2+3^2=13}$</td>
+</tr>
+<tr>
+<td style="text-align:center">曼哈顿距离</td>
+<td style="text-align:center">$&#124;x_1-x_2&#124;+&#124;y_1-y_2&#124;$</td>
+<td style="text-align:center">$&#124;4-9&#124;+&#124;4-5&#124;=6$</td>
+<td style="text-align:center">$&#124;4-6&#124;+&#124;4-1&#124;=5$</td>
+</tr>
+<tr>
+<td style="text-align:center">切比雪夫距离</td>
+<td style="text-align:center">$Max(&#124;x_1-x_2&#124;,&#124;y_1-y_2&#124;)$</td>
+<td style="text-align:center">$Max(5,1)=5$</td>
+<td style="text-align:center">$Max(2,3)=3$</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h3 id="K近邻算法-KNN-优点："><a href="#K近邻算法-KNN-优点：" class="headerlink" title="K近邻算法(KNN)优点："></a>K近邻算法(KNN)优点：</h3><ol>
 <li>容易理解，实现简单</li>
 <li>只需保存训练样本和标记，无需估计参数和训练</li>
@@ -556,7 +587,44 @@ C      45
 <li>多项式回归</li>
 <li>逻辑回归</li>
 </ul>
-<p>一元线性回归举例：<br>汽车卖家做电视广告数量与卖出的汽车数量，如表所示，预测广告数量为6时，卖出的汽车数量？<br>|广告数|卖出汽车数|<br>|:—:|:—:|<br>|1|14|<br>|3|24|<br>|2|18|<br>|1|17|<br>|3|27|<br>|$\sum_{} x=10 \\ \overline{x}=2$|$\sum_{} y=100 \\ \overline{y}=20$|<br>使用最小二乘法计算：<br>分子=$(1-2)(14-20)+(3-2)(24-20)+(2-2)(18-20)+(1-2)(17-20)+(3-2)(27-20)=20$<br>分母=$(1-2)^2+(3-2)^2+(2-2)^2+(1-2)^2+(3-2)^2=4$<br>b1=20/4=5<br>b0=20-5<em>2=10<br>所以一元线性方程为：$y=b1</em>x+b0$，当广告数=6时，y=40</p>
+<p>一元线性回归举例：<br>汽车卖家做电视广告数量与卖出的汽车数量，如表所示，预测广告数量为6时，卖出的汽车数量？</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">广告数</th>
+<th style="text-align:center">卖出汽车数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">14</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">24</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">18</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">17</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">27</td>
+</tr>
+<tr>
+<td style="text-align:center">$\sum_{} x=10 \\ \overline{x}=2$</td>
+<td style="text-align:center">$\sum_{} y=100 \\ \overline{y}=20$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>使用最小二乘法计算：<br>分子=$(1-2)(14-20)+(3-2)(24-20)+(2-2)(18-20)+(1-2)(17-20)+(3-2)(27-20)=20$<br>分母=$(1-2)^2+(3-2)^2+(2-2)^2+(1-2)^2+(3-2)^2=4$<br>b1=20/4=5<br>b0=20-5<em>2=10<br>所以一元线性方程为：$y=b1</em>x+b0$，当广告数=6时，y=40</p>
 <h3 id="常用的线性回归模型：Ridge回归和Lasso回归"><a href="#常用的线性回归模型：Ridge回归和Lasso回归" class="headerlink" title="常用的线性回归模型：Ridge回归和Lasso回归"></a>常用的线性回归模型：Ridge回归和Lasso回归</h3><p>Ridge回归与Lasso回归的出现是为了解决线性回归出现的过拟合现象。</p>
 <h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><p>逻辑回归算法是用来解决分类问题的<br>逻辑回归模型通过引入sigmoid函数将预测值限定为[0,1]间</p>
 <hr>
@@ -644,9 +712,66 @@ lr_bagging = lr_bagging.fit(X_train, y_train)
 lr_bagging.score(X_test,y_test)
 </code></pre><hr>
 <h1 id="第八章-关联规则"><a href="#第八章-关联规则" class="headerlink" title="第八章 关联规则"></a>第八章 关联规则</h1><p>关联规则常见算法：Apriori、FP-Growth<br>协同过滤常见算法：基于用户、基于商品</p>
-<h3 id="协同过滤算法-基于用户"><a href="#协同过滤算法-基于用户" class="headerlink" title="协同过滤算法(基于用户)"></a>协同过滤算法(基于用户)</h3><p>ABC三位观众对《老炮儿》和《唐人街探案》两部电影的调查数据，请用欧式距离计算观众A与B、观众A与C之间的兴趣相似度。其中欧式距离与相似度的映射关系为：相似度=1/(1+欧式距离)。<br>|用户|老炮儿|唐人街探案|<br>|:-:|:-:|:-:|<br>| A | 3.5 | 1.0 |<br>| B | 2.5 | 3.5 |<br>| C | 3.5 | 2.0 |</p>
+<h3 id="协同过滤算法-基于用户"><a href="#协同过滤算法-基于用户" class="headerlink" title="协同过滤算法(基于用户)"></a>协同过滤算法(基于用户)</h3><p>ABC三位观众对《老炮儿》和《唐人街探案》两部电影的调查数据，请用欧式距离计算观众A与B、观众A与C之间的兴趣相似度。其中欧式距离与相似度的映射关系为：相似度=1/(1+欧式距离)。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">用户</th>
+<th style="text-align:center">老炮儿</th>
+<th style="text-align:center">唐人街探案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">3.5</td>
+<td style="text-align:center">1.0</td>
+</tr>
+<tr>
+<td style="text-align:center">B</td>
+<td style="text-align:center">2.5</td>
+<td style="text-align:center">3.5</td>
+</tr>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center">3.5</td>
+<td style="text-align:center">2.0</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>解：根据题干，可以得到ABC对应的坐标，<br>A(3.5,1.0)、B(2.5,3.5)、C(3.5,2.0)<br>计算A与B的距离：<script type="math/tex">Sab=\sqrt{((3.5-2.5)^2+(1.0-3.5)^2)}=2.69</script><br>计算A与C的距离：<script type="math/tex">Sac=\sqrt{((3.5-3.5)^2+(1.0-2.0)^2)}=1</script><br>A与B的相似度=1/(1+Sab)=0.27<br>A与c的相似度=1/(1+Sac)=0.5</p>
-<h3 id="协同过滤算法-基于物品"><a href="#协同过滤算法-基于物品" class="headerlink" title="协同过滤算法(基于物品)"></a>协同过滤算法(基于物品)</h3><p>ABC三位观众对《寻龙诀》和《小门神》两部电影的调查数据，请用Pearson相关系数来计算《寻龙诀》和《小门神》的相似度。<br>|用户|寻龙诀|小门神|<br>|:-:|:-:|:-:|<br>| A | 3.5 | 3.0 |<br>| B | 5.0 | 3.5 |<br>| C | 3.0 | 2.0 |<br>Pearson相关系数公式为：<script type="math/tex">p_x,_y=\frac{\sum{XY}-\frac{\sum{X}\sum{Y}}{N}}{\sqrt{(\sum{X^2-\frac{(\sum{X})^2}{N}})(\sum{Y^2}-\frac{(\sum{Y})^2}{N})}}</script></p>
+<h3 id="协同过滤算法-基于物品"><a href="#协同过滤算法-基于物品" class="headerlink" title="协同过滤算法(基于物品)"></a>协同过滤算法(基于物品)</h3><p>ABC三位观众对《寻龙诀》和《小门神》两部电影的调查数据，请用Pearson相关系数来计算《寻龙诀》和《小门神》的相似度。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">用户</th>
+<th style="text-align:center">寻龙诀</th>
+<th style="text-align:center">小门神</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">3.5</td>
+<td style="text-align:center">3.0</td>
+</tr>
+<tr>
+<td style="text-align:center">B</td>
+<td style="text-align:center">5.0</td>
+<td style="text-align:center">3.5</td>
+</tr>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center">3.0</td>
+<td style="text-align:center">2.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Pearson相关系数公式为：<script type="math/tex">p_x,_y=\frac{\sum{XY}-\frac{\sum{X}\sum{Y}}{N}}{\sqrt{(\sum{X^2-\frac{(\sum{X})^2}{N}})(\sum{Y^2}-\frac{(\sum{Y})^2}{N})}}</script></p>
 <p>《寻龙诀》(X)和《小门神》(Y)：<br>X=(3.5,5.0,3.0)<br>Y=(3.0,3.5,2.0)</p>
 <ol>
 <li>x和y的乘积再求和：3.5<em>3.0+5.0</em>3.5+3.0*2.0=34</li>
@@ -1228,7 +1353,7 @@ lr_bagging.score(X_test,y_test)
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
@@ -1236,5 +1361,5 @@ lr_bagging.score(X_test,y_test)
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>
