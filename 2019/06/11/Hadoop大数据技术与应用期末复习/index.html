@@ -89,18 +89,15 @@
 
 
 
-<meta name="description" content="第1章 初识Hadoop大数据技术1.大数据的4V特征： 数据体量大（Volume）：大数据的数据量从 TB 级别跃升到 PB 级别。 数据类型多（Variety）：大数据的数据类型包括前文提到的网络日志、视频、图片、地理位置信息等。 处理速度快（Velocity）：1 秒定律。最后这一点是大数据技术与传统数据挖掘技术的本质区别。 价值密度低（Value）：以视频为例，连续不间断监控过程中，可">
 <meta name="keywords" content="期末复习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop大数据技术与应用期末复习">
 <meta property="og:url" content="www.xinxianshen.top/2019/06/11/Hadoop大数据技术与应用期末复习/index.html">
 <meta property="og:site_name" content="鑫先绅">
-<meta property="og:description" content="第1章 初识Hadoop大数据技术1.大数据的4V特征： 数据体量大（Volume）：大数据的数据量从 TB 级别跃升到 PB 级别。 数据类型多（Variety）：大数据的数据类型包括前文提到的网络日志、视频、图片、地理位置信息等。 处理速度快（Velocity）：1 秒定律。最后这一点是大数据技术与传统数据挖掘技术的本质区别。 价值密度低（Value）：以视频为例，连续不间断监控过程中，可">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-06-12T05:45:45.944Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop大数据技术与应用期末复习">
-<meta name="twitter:description" content="第1章 初识Hadoop大数据技术1.大数据的4V特征： 数据体量大（Volume）：大数据的数据量从 TB 级别跃升到 PB 级别。 数据类型多（Variety）：大数据的数据类型包括前文提到的网络日志、视频、图片、地理位置信息等。 处理速度快（Velocity）：1 秒定律。最后这一点是大数据技术与传统数据挖掘技术的本质区别。 价值密度低（Value）：以视频为例，连续不间断监控过程中，可">
 
 
 
@@ -371,9 +368,7 @@
       
 
       
-        <a id="more"></a>
-<hr>
-<h1 id="第1章-初识Hadoop大数据技术"><a href="#第1章-初识Hadoop大数据技术" class="headerlink" title="第1章 初识Hadoop大数据技术"></a>第1章 初识Hadoop大数据技术</h1><h2 id="1-大数据的4V特征："><a href="#1-大数据的4V特征：" class="headerlink" title="1.大数据的4V特征："></a>1.大数据的4V特征：</h2><ul>
+        <h2 id><a href="#" class="headerlink" title></a><a id="more"></a></h2><h1 id="第1章-初识Hadoop大数据技术"><a href="#第1章-初识Hadoop大数据技术" class="headerlink" title="第1章 初识Hadoop大数据技术"></a>第1章 初识Hadoop大数据技术</h1><h2 id="1-大数据的4V特征："><a href="#1-大数据的4V特征：" class="headerlink" title="1.大数据的4V特征："></a>1.大数据的4V特征：</h2><ul>
 <li><strong>数据体量大（Volume）</strong>：大数据的数据量从 TB 级别跃升到 PB 级别。</li>
 <li><strong>数据类型多（Variety）</strong>：大数据的数据类型包括前文提到的网络日志、视频、图片、地理位置信息等。</li>
 <li><strong>处理速度快（Velocity）</strong>：1 秒定律。最后这一点是大数据技术与传统数据挖掘技术的本质区别。</li>
@@ -385,6 +380,7 @@
 <p>（4）高容错性：Hadoop能够自动保存数据的多个副本，并且能够自动将失败的任务重新分配。</p>
 <h1 id="第2章-Hadoop环境设置"><a href="#第2章-Hadoop环境设置" class="headerlink" title="第2章 Hadoop环境设置"></a>第2章 Hadoop环境设置</h1><h2 id="1-Hadoop3种配置方式、特点与用途"><a href="#1-Hadoop3种配置方式、特点与用途" class="headerlink" title="1.Hadoop3种配置方式、特点与用途"></a>1.Hadoop3种配置方式、特点与用途</h2><p>（1）单机模式：单机模式中没有HDFS。  </p>
 <p>需配置的文件：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -403,8 +399,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>（2）伪分布式模式：伪分布式其实是完全分布式的一种特例，但它只有一个节点。</p>
 <p>需配置的文件：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -430,7 +428,7 @@
 <tr>
 <td style="text-align:center">core-site.xml</td>
 <td style="text-align:center">fs.defaultFS</td>
-<td style="text-align:center">hdfs://&lt;ip>:8020</td>
+<td style="text-align:center">hdfs://<ip\>:8020</ip\></td>
 <td style="text-align:center">配置 NameNode 地址，8020 是 RPC 通信端口</td>
 </tr>
 <tr>
@@ -454,7 +452,7 @@
 <tr>
 <td style="text-align:center">yarn-site.xml</td>
 <td style="text-align:center">yarn.resourcemanager.hostname</td>
-<td style="text-align:center">&lt;ip></td>
+<td style="text-align:center"><ip\></ip\></td>
 <td style="text-align:center">ResourceManager 的 IP 地址或主机名</td>
 </tr>
 <tr>
@@ -465,8 +463,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>（3）完全分布式模式：完全分布式模式（Fully-Distributed Mode）也叫集群模式，是真正的分布式的、由 3 个及以上的实体机或者虚拟机组成的集群。</p>
 <p>需配置的文件：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -492,7 +492,7 @@
 <tr>
 <td style="text-align:center">core-site.xml</td>
 <td style="text-align:center">fs.defaultFS</td>
-<td style="text-align:center">hdfs://&lt;ip>:8020</td>
+<td style="text-align:center">hdfs://<ip\>:8020</ip\></td>
 <td style="text-align:center">配置 NameNode 地址，8020 是 RPC 通信端口</td>
 </tr>
 <tr>
@@ -516,7 +516,7 @@
 <tr>
 <td style="text-align:center">yarn-site.xml</td>
 <td style="text-align:center">yarn.resourcemanager.hostname</td>
-<td style="text-align:center">&lt;ip></td>
+<td style="text-align:center"><ip\></ip\></td>
 <td style="text-align:center">ResourceManager 的 IP 地址或主机名</td>
 </tr>
 <tr>
@@ -538,7 +538,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="2-hadoop目录结构-部分"><a href="#2-hadoop目录结构-部分" class="headerlink" title="2.hadoop目录结构(部分)"></a>2.hadoop目录结构(部分)</h2><p>├── bin —存放操作命令，hdfs/hadoop 在这里<br>├── etc<br>│ └── hadoop —所有配置文件<br>├── lib —本地库（native 库，一些.so）<br>├── logs —日志<br>├── sbin —集群的命令，如启动、停止  </p>
+</div>
+<h2 id="2-hadoop目录结构-部分"><a href="#2-hadoop目录结构-部分" class="headerlink" title="2.hadoop目录结构(部分)"></a>2.hadoop目录结构(部分)</h2><p>├── bin —-存放操作命令，hdfs/hadoop 在这里<br>├── etc<br>│ └── hadoop —-所有配置文件<br>├── lib —-本地库（native 库，一些.so）<br>├── logs —-日志<br>├── sbin —-集群的命令，如启动、停止  </p>
 <h2 id="3-安装时常用命令（部分）"><a href="#3-安装时常用命令（部分）" class="headerlink" title="3.安装时常用命令（部分）"></a>3.安装时常用命令（部分）</h2><p>（1）免密登录设置</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
 <p> 其中，rsa 表示加密算法，键入上面一条命令后连续敲击三次回车键，系统会自动在~/.ssh 目录下生成公钥（id_rsa.pub）和私钥（id_rsa）。  </p>
@@ -553,7 +554,7 @@
 <p>启动YARN：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-yarn.sh</span><br></pre></td></tr></table></figure></p>
 <p>同时启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-all.sh</span><br></pre></td></tr></table></figure></p>
 <p>（5）解压、复制、创建文件夹、删除文件夹或文件(-r 表示递归，可以不加)<br>解压：<kbd>tar -zxvf 待解压文件路径 -C 解压路径</kbd><br>复制： <kbd>cp 原文件路径 复制后文件路径</kbd><br>创建文件夹：<kbd>mkdir -r 文件夹路径</kbd><br>删除文件： <kbd>rm -r 文件路径</kbd><br>删除文件夹：<kbd>rmdir -r 文件夹路径</kbd></p>
-<h1 id="第3章-HDFS"><a href="#第3章-HDFS" class="headerlink" title="第3章 HDFS"></a>第3章 HDFS</h1><p>（1）复制、新建文件、创建文件夹、删除文件夹或文件、上传、下载<br>复制：<kbd>hdfs dfs -cp</kbd><br>新建文件：<kbd>hdfs dfs touchz &lt;paths></kbd><br>创建文件夹：<kbd>hdfs dfs -mkdir -p 文件夹路径</kbd><br>删除文件：<kbd>hdfs dfs -rm -r 文件路径</kbd><br>删除文件夹：<kbd>hdfs dfs -rmdir -r 文件夹路径</kbd><br>上传：<kbd>hdfs dfs -put 本地文件路径 HDFS路径</kbd><br>下载：<kbd>hdfs dfs -copyFromLocal HDFS文件路径 本地文件路径</kbd></p>
+<h1 id="第3章-HDFS"><a href="#第3章-HDFS" class="headerlink" title="第3章 HDFS"></a>第3章 HDFS</h1><p>（1）复制、新建文件、创建文件夹、删除文件夹或文件、上传、下载<br>复制：<kbd>hdfs dfs -cp</kbd><br>新建文件：<kbd>hdfs dfs touchz <paths\></paths\></kbd><br>创建文件夹：<kbd>hdfs dfs -mkdir -p 文件夹路径</kbd><br>删除文件：<kbd>hdfs dfs -rm -r 文件路径</kbd><br>删除文件夹：<kbd>hdfs dfs -rmdir -r 文件夹路径</kbd><br>上传：<kbd>hdfs dfs -put 本地文件路径 HDFS路径</kbd><br>下载：<kbd>hdfs dfs -copyFromLocal HDFS文件路径 本地文件路径</kbd></p>
 
       
     </div>
@@ -759,7 +760,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第1章-初识Hadoop大数据技术"><span class="nav-number">1.</span> <span class="nav-text">第1章 初识Hadoop大数据技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-大数据的4V特征："><span class="nav-number">1.1.</span> <span class="nav-text">1.大数据的4V特征：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Hadoop的特点："><span class="nav-number">1.2.</span> <span class="nav-text">2.Hadoop的特点：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第2章-Hadoop环境设置"><span class="nav-number">2.</span> <span class="nav-text">第2章 Hadoop环境设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Hadoop3种配置方式、特点与用途"><span class="nav-number">2.1.</span> <span class="nav-text">1.Hadoop3种配置方式、特点与用途</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-hadoop目录结构-部分"><span class="nav-number">2.2.</span> <span class="nav-text">2.hadoop目录结构(部分)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-安装时常用命令（部分）"><span class="nav-number">2.3.</span> <span class="nav-text">3.安装时常用命令（部分）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第3章-HDFS"><span class="nav-number">3.</span> <span class="nav-text">第3章 HDFS</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#第1章-初识Hadoop大数据技术"><span class="nav-number"></span> <span class="nav-text">第1章 初识Hadoop大数据技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-大数据的4V特征："><span class="nav-number">1.</span> <span class="nav-text">1.大数据的4V特征：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Hadoop的特点："><span class="nav-number">2.</span> <span class="nav-text">2.Hadoop的特点：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第2章-Hadoop环境设置"><span class="nav-number"></span> <span class="nav-text">第2章 Hadoop环境设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Hadoop3种配置方式、特点与用途"><span class="nav-number">1.</span> <span class="nav-text">1.Hadoop3种配置方式、特点与用途</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-hadoop目录结构-部分"><span class="nav-number">2.</span> <span class="nav-text">2.hadoop目录结构(部分)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-安装时常用命令（部分）"><span class="nav-number">3.</span> <span class="nav-text">3.安装时常用命令（部分）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第3章-HDFS"><span class="nav-number"></span> <span class="nav-text">第3章 HDFS</span></a></li></div>
             
 
           </div>
